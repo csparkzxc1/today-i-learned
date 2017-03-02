@@ -1,6 +1,9 @@
 # today-i-learned
 
-> - [0123](./md/0123.md)| web accessibility 
+> - [0118](./md/0118.md)| Basic Css
+> - [0119](./md/0119.md)| 선택자의 구체성, 로그인 만들기
+> - [0123](./md/0123.md)| web accessibility(WCAG2.0)
+> - [0124](./md/0124.md)| 정보접근성 
 > - [0131](./md/0131.md)| CSS (Sass, NVM, NPM, CLI)    
 > - [0201](./md/0201.md)| CLI, Sass     
 > - [0203](./md/0203.md)| Sass  
@@ -11,6 +14,7 @@
 > - [0217](./md/0217.md)| DOM Dynamic Node Manipulation  
 > - [0220](./md/0220.md)| DOM control  
 > - [0224](./md/0224.md)| Jsdoc, ClassList
+
 
 
 # Computational thinking
