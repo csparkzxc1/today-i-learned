@@ -20,5 +20,5 @@
 > - [0223](./computational thinking/0223.md) | 네트워크, 암호화
 > - [0302](./computational thinking/0302.md) | 프로그래밍언어, 객체지향 프로그래밍 패러다임, OOP vs Functional Programming
 
-> - [HOME WORK1](./computational thinking/HOME WORK1.md) | 과제1
-  
+> - [HOME WORK1](./computational thinking/HOME WORK1.md) | 과제1 (인코딩의 의미 / 한글 문자인코딩방식/ 장단점)
+> - [HOME WORK2](./computational thinking/HOME WORK2.md) | 과제2 (HTTP와 HTTPS의 정의와 차이점/ 공인인증서배경과 위험성/ 엑티브X)  
