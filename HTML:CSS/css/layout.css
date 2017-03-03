@@ -1,0 +1,35 @@
+@@charset "UTF-8";
+body{
+  margin: 0;
+}
+#header{
+  background: yellow;
+  height: 20vh;
+}
+#container{
+  background: skyblue;
+  border: 10px solid red;
+  overflow: hidden;
+}
+#container::after{
+  content: "가상요소";
+  background: gray;
+ display: block;
+clear: both;
+}
+#content{
+  background: pink;
+  height: 50vh;
+  width: 80%;
+  float: right;
+}
+#sidebar{
+  background: orange;
+  height: 30vh;
+  width: 20%;
+  float: left;
+}
+#footer{
+  background: lime;
+  height: 20vh;
+}

@@ -1,0 +1,424 @@
+@charset "UTF-8";
+@import "https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css";
+@import "fonts.css";
+
+
+/* 숨김 콘텐츠 */
+.hidden, .skip-nav, legend{
+  background: red;
+  position: absolute;
+  left: -9999em;
+}
+
+.skip-nav:focus{
+  left: 0;
+  z-index: 100;
+}
+
+html,body,div,header,nav,section,aside,article,footer,figure,figcaption,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,p,fieldset{
+	margin:0;
+	padding:0;
+}
+ul{
+  list-style-type: none;
+}
+a:link, a:visited{
+color: inherit;
+text-decoration: none;
+}
+
+
+/*a:visited{
+  color: #555;
+}*/
+
+a:hover, a:focus{
+  color: #f00;
+}
+
+/*본문 스타일*/
+html{
+  font-size: 10px;
+}
+body{
+  margin: 0;
+  font-size: 1.4rem;
+   color: #181818;
+   background: #ccc linear-gradient(to bottom, #aaa, #777, 70%, blue);
+   font-family: 'Noto Sans regular';
+}
+
+.wrapper{
+  background: url(images/bg_flower.png) no-repeat 50% 0;
+  background-color: gray;
+  height: 100vh;
+  margin: 0 auto;
+}
+
+.header, .visual, .main-content, .slogan, .footer{
+  width: 940px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.header{
+  background-color: #fff;
+ position: relative;
+ height: 120px;
+ padding: 0 30px 50px 30px;
+ /*border-radius: 0 0 20px 20px/ 0 0 50px 50px;*/
+ border-bottom-left-radius: 15px;
+ border-bottom-right-radius: 15px;
+}
+/*웹카페 로고*/
+.logo{
+  /*background: blue;*/
+  position: absolute;
+  top: 45px;
+  left: 65px;
+}
+/*안내 링크*/
+.lnb{
+  /*background: yellow;*/
+  text-transform: uppercase;
+  text-align: right;
+  padding: 2px 0;
+}
+/*메인 메뉴*/
+.main-menu{
+  background: linear-gradient(to bottom, #efa91c 0%,#ef6109 30%,#ef6109 70%,#efa91c 100%);
+  background-color: red;
+  /*background-image: url(images/validation_icon.png);
+  background-repeat: no-repeat;
+  background-position: 100px 5px;  가로, 세로
+  background-size: 30px 30px;*/
+  height: 45px;
+  padding-left: 225px;
+  border-top: 2px solid #000;
+  border-radius: 0 0 10px 10px;
+}
+.main-menu::after{
+ content: "";
+ clear: both; /*clear는 블록에만 적용*/
+ display: block;
+}
+.main-menu > li {
+  float: left;
+  position: relative;
+  /*display: block;
+  line-height: 45px;
+  padding: 0 20px
+  border-left: 2px solid;*/
+}
+.main-menu > li > a{
+  color: #fff;
+  font-family: "Noto Sans Bold";
+  font-size: 1.6rem;
+  line-height: 45px;
+  display: block;
+  padding: 0 20px;
+  border-left: 2px solid #fff;
+  text-shadow: 1px 0px 0 #000, 0px 1px 0 #000, -1px 0px 0px #000,0px -1px 0px #000;
+}
+.main-menu > li > a:hover,
+.main-menu > li > a:focus{
+  color: yellow;
+  outline: 0;
+  /*border-bottom: 2px solid #000;*/
+}
+.main-menu > li > a:hover::after,
+.main-menu > li > a:focus::after{
+  content: '';
+  background: skyblue;
+  display: block;
+  border-top: 2px solid #000;
+}
+
+
+
+
+.main-menu ul{
+  /*background: aqua;*/
+  position: absolute;
+  top: 45px;
+  white-space: nowrap;
+  /*width: 200px;*/
+  /*display: none;*/
+}
+
+.about-html{
+  /*background: yellow;*/
+  display: block;
+  left: 0px;
+
+}
+.about-css{
+  background: yellow;
+  display: none;
+  left: 0px;
+
+}
+.web-standard{
+  background: yellow;
+  display: none;
+  left: 0px;
+
+}
+.web-accessibility{
+  background: yellow;
+  display: none;
+  left: -135px;
+}
+
+.qna{
+    background: yellow;
+    display: none;
+    right: 0;
+}
+.archive{
+      background: yellow;
+      display: none;
+      right: 0;
+}
+.main-menu ul li{
+  display: inline-block;
+}
+.main-menu ul a{
+  padding: 9px 10px 9px 0;
+  display: block;
+}
+.main-menu ul /*li*/ a::before{
+  content: 'r';
+  font-family: "webcafeIcon";
+position: relative;;
+top: 2px;
+}
+.main-menu ul a:hover::before,
+.main-menu ul a:focus::before{
+  content: "c";
+
+  /*비주얼*/
+
+
+
+
+
+  /*content: '\f308';
+  font-family: "fontello";
+  left: 3px;
+  top: 0;
+  color: blue;
+  margin-right: 5px;*/
+}
+
+ /* 1월 18일 수업
+  .main-menu{
+  background: orange;
+  padding-left: 225px;
+  height: 45px;
+  border-top: 2px solid #000;
+  overflow: hidden;
+}
+.main-menu > li{
+  float: left;
+  color: #fff;
+  font-size: 1.6rem;
+  font-family: "Noto Sans Bold";
+}
+.main-menu > li > a{
+  color: #fff;
+  font-size: 1.6rem;
+  font-family: "Noto Sans Bold";
+  line-height: 45px;
+  display: block;
+}
+.main-menu ul {
+  background: pink;
+  position: absolute;
+  display: none;
+}*/
+
+.lnb li, .lnb a{
+  display: inline-block;
+}
+.lnb a{
+  /*background: lime;*/
+  padding: 10px 8px 8px 0;
+  display: inline-block;
+
+}
+.lnb a:focus{
+    outline: 2px solid blue;
+    outline-offset: -5px;
+  }
+
+.lnb a::before{
+  content: ":";
+  /*background: aqua;*/
+  padding-right: 10px;
+}
+.lnb li:first-child a::before{
+  content: "";
+}
+.lnb li:last-child a{
+padding-right:0;
+}
+
+/*비주얼*/
+.visual{
+  /*background-color: #3876d2;*/
+  height: 120px;
+  position: relative;
+}
+@keyframes ani-text{
+  /*from{ }
+  to{ }*/
+  0%{
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.2);
+    /*top: 0;
+    left: 0;*/
+    transform: translate(0,0);
+  }
+  100%{
+    font-size: 25px;
+    color: rgba(0, 0, 0, 0.5);
+    transform: translate(400px, 75px);
+
+    /*top: 75px;
+    left: 400px;*/
+    opacity: 1;
+  }
+}
+/*텍스트 애니메이션*/
+.visual-text{
+  opacity: 0;
+  /*background: lime;*/
+  /*position: absolute;*/
+  /*z-index: -1;/*임시코드*/
+  width: 500px;
+  font-family: 'Noto Sans Bold';
+  /*left: 0;
+  top: 0;*/
+  animation: ani-text 3s forwards 2s 3  ease-in-out;
+  /*animation-name: ani-text;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+  animation-delay: 2s;
+  animation-iteration-count: 3;
+  animation-direction: alternate;
+  animation-timing-function: ease-out;*/
+  /*배경애니메이션*/
+}
+
+
+  .visual::before, .visual::after{
+    content: "";
+    background-color: skyblue;
+    width: 100%;
+    height: 120px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .visual::before{
+    content: "";
+    background: url(images/ani_flower_01.png) no-repeat 0px -15px,
+    url(images/ani_flower_02.png) no-repeat 670px 0px;
+    animation: ani-flower 3s alternate 1s infinite  ease-in-out;
+
+    /*background-color: skyblue;
+    width: 100%;
+    height: 120px;
+    position: absolute;    위 코드로 함께 복사됨*/
+  }
+
+  .visual::after{
+    background: url(images/ani_flower_03.png) no-repeat 300px 0px,
+    url(images/ani_flower_04.png) no-repeat 800px 20px;
+    animation: ani-flower 3s alternate 2s infinite  ease-in-out;
+  }
+
+  @keyframes ani-flower{
+    /*from{ }
+    to{ }*/
+    0%{
+      opacity: 0;
+   }
+    100%{
+      opacity: 1;
+    }
+  }
+
+.main-content{
+  background-color: #fff;
+  height: 60vh;
+  padding: 30px;
+  display: flex;
+  border-radius: 15px 15px 0 0;
+/*flex-direction: row; 해당 개별속성이 아래 대표속성에 포함*/
+/*flex-wrap: wrap;*/
+flex-flow: row; /* nowrap 연습용!!!!!!*/
+justify-content: space-between;
+}
+
+.column{
+  background-color: pink;
+}
+
+.column1{
+  order: 1;
+  width: 250px;
+}
+
+.column2{
+ order: 2;
+width: 380px;
+}
+
+.column3{
+  order: 3;
+  width: 190px;
+}
+
+/* 로그인 */
+.login{
+  background: #f4cf10 radial-gradient(circle at right top, rgb(241, 213, 28), rgb(208, 117, 9));
+  border-radius: 10px;
+  padding: 10px;
+}
+.login-heading{
+  /*background: aqua;*/
+  color: #ff0;
+  font-size: 1.6rem;
+  font-family: "Nota Sans Bold";
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+.login form{
+  background: #fff;
+  border-radius: 5px 5px 0 0;
+  padding: 10px 10px 0 10px;
+}
+.login fieldset{
+  border: 0;
+}
+.login label{
+  background: aqua;
+  width: 4em;
+  display: inline-block;
+}
+.login input{
+  width: 100px;
+}
+
+.slogan{
+  background-color: #f00c0c;
+  height: 10vh;
+}
+
+.footer-bg{
+  background-color: #250707;
+  height: 10vh;
+}
+s

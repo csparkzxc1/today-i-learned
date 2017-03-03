@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+  html{
+    border:  1px solid gray
+  }
+  div{
+    border: 5px solid tomato;
+  }
+  #grand{
+    position: static;
+  }
+  #parent{
+    /*position: relative;*/
+  }
+  #me{
+    /*포지션이 relative일때 offset을 할수있다.(움직일수있다.)*/
+
+    background: black;
+    color: white;
+    position: absolute;;
+    left: 0px;
+    top: 0px;
+  }
+  </style>
+</head>
+
+<body>
+  <div id="other">other</div>
+  <div id="grand">grand</div>
+  <div id="parent">
+    parent
+<div id="me">me</div>
+<me></me>
+</body>
+</html>

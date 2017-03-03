@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Transition 속성</title>
+    <style>
+        img {
+            transform: rotate(0deg);
+            transition: all 1s, border-radius 1s;
+            border: 10px solid red;
+        }
+
+        img:hover,
+        img:focus {
+            transform: rotate(180deg);
+            background: blue;
+            border: 10px dashed blue;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Transition 효과</h1>
+    <img src="css/images/123.png" alt="햇님" tabindex="0">
+</body>
+
+</html>

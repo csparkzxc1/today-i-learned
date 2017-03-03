@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>웹카페 -HTML5,CSS3</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a href="#" class="skip-nav">본문바로가기</a>
+  <div class="wrapper">
+  <header class="header">
+  <!-- 웹카페 로고-->
+  <h1 class="logo"><img src="images/logo.png" alt="web cafe"></h1>
+  <ul class="lnb">
+    <li><a href="#">홈</a></li>
+    <li><a href="#">로그인</a></li>
+    <li><a href="#">회원가입</a></li>
+    <li><a href="#">사이트맵</a></li>
+    <li><a href="#">english</a></li>
+  </ul>
+  <nav class="navigation">
+    <h2 class="hidden">메인 메뉴</h2>
+    <ul class="main-menu">
+      <li>
+        <a href="#">HTML에 대해</a>
+        <ul class="about-html">
+          <li>
+            <a href="introduce.html">HTML5 소개</a>
+          </li>
+          <li>
+            <a href="#">레퍼런스 소개</a>
+          </li>
+          <li>
+            <a href="#">활용예제</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">CSS에 대해</a>
+        <ul class="about-css">
+          <li>
+            <a href="#">CSS 소개</a>
+          </li>
+          <li>
+            <a href="#">CSS2 VS CSS3</a>
+          </li>
+          <li>
+            <a href="#">CSS 애니메이션</a>
+          </li>
+          <li>
+            <a href="#">CSS Framework</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">웹 표준</a>
+        <ul class="web-standard">
+          <li>
+            <a href="#">웹 표준이란?</a>
+          </li>
+          <li>
+            <a href="#">W3C</a>
+          </li>
+          <li>
+            <a href="#">HTML5의 현재와 미래</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">웹 접근성</a>
+        <ul class="web-accessibility">
+          <li>
+            <a href="#">웹 접근성의 개요</a>
+          </li>
+          <li>
+            <a href="#">장애 환경의 이해</a>
+          </li>
+          <li>
+            <a href="#">장차법</a>
+          </li>
+          <li>
+            <a href="#">웹 접근성 품질마크</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">묻고 답하기</a>
+        <ul class="qna">
+          <li>
+            <a href="qna.html">묻고 답하기</a>
+          </li>
+          <li>
+            <a href="#">FAQ</a>
+          </li>
+          <li>
+            <a href="#">1대1 질문</a>
+          </li>
+          <li>
+            <a href="#">웹표준</a>
+          </li>
+          <li>
+            <a href="#">웹접근성</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">자료실</a>
+        <ul class="archive">
+          <li>
+            <a href="#">공개 자료실</a>
+          </li>
+          <li>
+            <a href="gallery.html">이미지 자료실</a>
+          </li>
+          <li>
+            <a href="#">웹 표준 자료실</a>
+          </li>
+          <li>
+            <a href="#">웹 접근성 자료실</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  </header>
+  <div class="visual">
+    <div class="visual-text">
+      Web Standards &amp; Accessibility
+    </div>
+  </div>
+  <main class="main-content">
+    <div class="column column1">
+      <div class="login">
+        <h2 class="login-heading">로그인</h2>
+        <form action="javascript:alert('회원님 반갑습니다.');">
+          <fieldset>
+            <legend>회원 로그인 폼</legend>
+            <div class="user-id">
+              <label for="user-id">아이디</label>
+              <input type="email" id="user-id" placeholder="guest@fastcampus.co.kr" required>
+            </div>
+            <div class="user-pw">
+              <label for="user-pw">비밀번호</label>
+              <input type="password" id="user-pw" placeholder="8자리 이상" required>
+            </div>
+
+            <button type="submit" class="btn-login">로그인</button>
+          </fieldset>
+        </form>
+        <div class="member">
+          <a href="#" class="signup">회원가입</a>
+          <a href="#" class="find">아이디/비밀번호 찾기</a>
+        </div>
+      </div>
+      <div class="validation">
+        <h2 class="hidden">유효성검사 배너링크</h2>
+        <ul>
+          <li>
+            <a href="http://validator.w3.org" target="_blank" title="마크업 유효성검사 사이트로 이동(새창)"> W3C Markup Validation </a>
+          </li>
+          <li>
+            <a href="http://jigsaw.w3.org/css-validator/" target="_blank" title="CSS 유효성검사 사이트로 이동(새창)"> CSS Validation Service </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="term">
+        <h2 class="term-heading">웹 관련 용어</h2>
+        <a href="#">
+          <dl class="term-list">
+            <dt class="term-list-heading">웹표준 이란?</dt>
+            <dd class="term-list-thumbnail">
+              <img src="images/web_standards.gif" alt="W3C 로고">
+            </dd>
+            <dd class="term-list-brief">
+              <p>
+                W3C 단체에서 규정한 웹 기술 사양에 대한
+                규칙을 말하며 표준 규격은..
+              </p>
+            </dd>
+          </dl>
+        </a>
+      </div>
+
+
+
+
+
+    </div>
+    <div class="column column2">컬럼 2</div>
+    <div class="column column3">컬럼 3</div>
+
+
+  </main>
+  <article class="slogan">
+  <h1>슬로건</h1>
+</article>
+  <div class="footer-bg">
+    <footer class="footer">푸터</footer>
+  </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+
+.footer{
+  margin: 0;
+  padding: 0;
+}
+.header, visual, main-content, footer{
+  width: 940px;
+  margin: 0 auto;
+ box-sizing: border-box;
+}
+
+.header{
+  background: yellow;
+}
+.visual{
+  background: green;
+  position: relative;
+}
+.main-content{
+  background: skyblue;
+  position: relative;
+}
+. column1, column2, column3{
+  position: absolute;
+}
+.column1{
+  background: tomato;
+  width: 200px;
+}
+
+.column2{
+  background: tomato;
+  width: 200px;
+}
+
+.column3{
+  background: tomato;
+  width: 200px;
+}
+
+
+
+.nav{
+  background: blue;
+}
+
+.footer{
+  background: brown;
+  height: 10vh;
+}

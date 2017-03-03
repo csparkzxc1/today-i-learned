@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>테이블</title>
+</head>
+<body>
+  <h1>테이블 만들기</h1>
+  <p id="t-desc">표의 요약정보 ......</p>
+  <table  border="1" aria-describedby="t-dec">
+    <caption>2017년 1월 시험 점수</caption>
+    <tr>
+      <th scope="col">성명</th>
+      <th scope="col" id="en">영어</th>
+      <th scope="col">수학</th>
+    </tr>
+    <tr>
+      <th scope="row" id="name1">홍길동</th>
+      <td headers="en name1">90</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <th scope="row">김철수</th>
+      <td>70</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th scope="row">합계</td>
+      <td>160</td>
+      <td>180</td>
+    </tr>
+  </table>
+</body>
+</html>

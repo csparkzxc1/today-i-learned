@@ -1,0 +1,42 @@
+
+<html>
+<head>
+<style>
+div{
+  border: 1px solid red;
+}
+.other{
+  background-color: green;
+  float: left;
+}
+.parent{
+  background-color: pink;
+  height: 20px;
+}
+.parent::after{
+  content: "가상요소";
+  background-color: skyblue;
+  clear: left;
+  display: block;
+}
+.me{
+  background-color: yellow;
+  float: left;
+  position: relative;
+  display: inline-block;
+  /*left: 20px;*/
+  /*top: 20px;*/
+  height: 20px;
+}
+
+
+</style>
+</head>
+<body>
+<div class="other">other</div>
+<div class="parent">
+
+  <div class="me">me</div>
+</div>
+</body>
+</html>

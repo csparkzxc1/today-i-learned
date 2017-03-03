@@ -1,0 +1,36 @@
+@charset "UTF-8";
+/* All Device */
+/*모든 해상도를 위한 공통 코드를 작성한다. 모든 해상도에서 이 코드가 실행됨.*/
+body{
+  background: yellow;
+}
+h1{
+  width: 100px;
+  height: 20px;
+  text-indent: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  background-repeat: no-repeat;
+}
+/* Mobile Device */
+/*768px 미만 해상도의 모바일 기기를 위한 코드를 작성한다. 모든 해상도에서 이 코드가 실행됨. 미디어 쿼리를 지원하지 않는 모바일 기기를 위해 미디어 쿼리 구문을 사용하지 않는다.*/
+h1{
+  width: 100px;
+  height: 20px;
+  text-indent: 100px;
+  background: url(../images/footer_logo.png);
+}
+/* Desktop Device */
+@media all and (min-width:769px) {
+/*사용자 해상도가 768px 이상일 때 이 코드가 실행됨.*/
+body{
+  background: pink;
+}
+h1{
+  width: 165px;
+  height: 35px;
+  text-indent: 165px;
+  background-image: url(../images/logo.png);
+
+}
+}
