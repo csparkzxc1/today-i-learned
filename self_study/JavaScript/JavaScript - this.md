@@ -102,11 +102,10 @@ console.log(Person.prototype.getName());
   window.foo();
   ```
 
-   
 
   기본적으로 `this`는 `전역객체(global object)`에 바인딩된다. 전역함수는 물론이고 심지어 내부함수의 경우도 this는 외부함수가 아닌 전역객체에 바인딩된다.
 
-  ```javascript
+```javascript
   function foo() {
     console.log(this);
     function bar() {
@@ -115,7 +114,7 @@ console.log(Person.prototype.getName());
     bar(); // Window { ... }
   }
   foo(); // Window { ... }
-  ```
+```
 
 
 
@@ -213,13 +212,229 @@ console.log(me.name);
 
 ### 3.2. 객체 리터럴 방식과 생성자 함수 방식의 차이
 
+객체 리터럴 방식과 생성자 함수 방식의 차이는 프로토타입 객체([prototype])에 있다.
+
+```javascript
+
+// 객체 리터럴 방식
+var foo = {
+  name: 'foo',
+  gender: 'male'
+}
+
+console.dir(foo);
+
+// 생성자 함수 방식
+var Person = function(name, gender) {
+  this.name = name;
+  this.gender = gender;
+}
+
+var me = new Person('lee', 'male');
+console.dir(me);
+
+var you = new Person('kim', 'female');
+console.dir(you);
+
+```
+
+- 객체 리터럴 방식의 경우, 생성된 객체의 프로토타입 객체는 Object.prototype이다.
+- 생성자 함수 방식의 경우, 생성된 객체의 프로토타입 객체는 Person.prototype이다.
+
 
 
 ### 3.3. 생성자 함수에 new연산자를 붙이지 않고 호출할 경우
 
+함수에 new연산자를 붙여서 호출하면 해당 함수는 생성자 함수로 동작한다.
+
+그러나 생성자 함수를 new없이 호출하거나 일반함수에 new를 붙여 호출하면 오류가 발생한다.
+
+일반함수와 생성자 함수의 호출시 this바인딩 방식이 다르기 때문이다.
+
+
+
+일반함수를 호출하면 this는 전역객체에 바인딩되지만 
+
+생성자함수를 호출하면 this는 새로 생성되는 객체에 바인딩된다.
+
+```javascript
+var Person = function(name) {
+  this.name = name;
+}
+
+var me = Person('lee');
+
+console.log(me);	// undefined
+console.log(window.name);	// lee
+```
+
+
+
+….(추가)…..
+
+
+
+new와 함께 생성자함수를 호출하는 경우, 생성자 함수 내부의 생성자 함수에 의해 생성된 인스턴트를 가리킨다. 따라서 아래  A함수가 new연산자와 함께 함수로 호출되면 A함수 내부의 this는 A생성자 함수에 의해 생성된 인스턴스를 가리킨다. 
+
+```javascript
+
+function A(arg) {
+  if(!(this instanceof arguments.callee))
+  	return new arguments.callee(arg);
+  this.value = arg ? arg : 0;
+}
+
+var a = new A(100);
+var b = A(10);
+
+console.log(a.value);
+console.log(b.value);
+```
+
 
 
 ### 4. apply 호출 패턴(Apply Invocation Pattern)
+
+내부적인 바인딩 이외에 this를 특정 객체에 명시적으로 바인딩하는 방법도 제공된다.
+
+이것을 가능하게 하는 것이 Function.prototype.apply(), Function.prototype.call() 매서드이다.
+
+
+
+이 메서드들은 모두 함수 객체의 프로토타입 객체인 Function.prototype 객체의 매서드이다. 
+
+```javascript
+
+var Person = function(name) {
+this.name = name;
+}
+
+var foo = {};
+
+// 생성자함수 Person을 호출한다. 이때 this에 객체 foo를 바인딩한다. 
+Person.apply(foo, ['name']);
+
+console.log(foo);
+
+```
+
+
+
+apply() 메서드의 대표적인 용도는 arguments객체와 같은 유사배열 객체에 배열 메서드를 사용하는 경우이다. arguments 객체는 배열이 아니기 때문에 slice() 같은 메서드를 사용할 수 없으나 apply() 메서드를 이용하면 가능하다.
+
+```javascript
+
+function convertArgsToArray() {
+  console.log(arguments);
+
+  // arguments 객체를 배열로 변환
+  // slice: 배열의 특정 부분에 대한 복사복을 생성한다. 
+  var arr = Array.prototype.slice.apply(arguments); // arguments.slice
+  // var arr = [].slice.apply(arguments);
+
+  console.log(arr);
+  return arr;
+}
+
+convertArgsToArray(1, 2, 3);
+
+```
+
+`Arrary.prototype.slice.apply(arguments)`는 
+
+"Array.prototype.slice() 메서드를 호출하라. 단 this는 arguments 객체로 바인딩하라"는 의미가 된다.
+
+결국 Arrary.prototype.slice() 메서드를 arguments객체 자신의 메서드인 것처럼 `arguments.slice()` 와 같은 형태로 호출하라는 것이다.
+
+
+
+call()메서드의 경우, 
+
+apply()와 기능은 같지만 apply()의 두번째 인자에서 배열 형태로 넘긴 것을 각각 하나의 인자로 넘긴다. 
+
+```javascript
+
+Person.apply(foo, [1, 2, 3]);
+
+Person.call(foo, 1, 2, 3);
+
+```
+
+
+
+apply()와 call() 메서드는 콜백 함수의 this를 위해서 사용되기도 한다.
+
+```javascript
+
+function Person(name) {
+  this.name = name;
+}
+
+Person.prototype.doSomething = function(callback) {
+  if(typeof callback == 'function') {
+    callback();	// (1)
+  }
+};
+
+function foo() {
+  console.log(this.name); // (2)
+}
+
+var p = new Person('lee');
+p.doSomething(foo); // undefined
+
+```
+
+1의 시점에서 this는 Person 객체이다. 
+
+그러나 2의 시점에서 this는 전역객체 window를 가리킨다. 
+
+콜백함수를 호출하는 외부함수 내부의 this와 콜백함수 내부의 this가 상이하기 때문에 문맥상 문제가 발생한다. 
+
+따라서 콜백함수 내부의 this를 콜백함수를 호출하는 함수 내부의 this와 일치시켜 주어야 한다.
+
+(번거러롭다!)
+
+```javascript
+
+function Person(name) {
+  this.name = name;
+}
+
+Person.prototype.doSomething = function(callback) {
+  if(typeof callback == 'function') {
+    callback.call(this);
+  }
+};
+
+function foo() {
+  console.log(this.name);
+}
+
+var p = new Person('lee');
+p.doSomething(foo); // 'lee'
+
+```
+
+ES5에 추가된 Function.prototype.bind()를 사용하는 방법도 가능하다.
+
+ES6에서 새롭게 제공하는 Arrow function을 사용하면 call 메서드를 사용하지 않아도 된다.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
