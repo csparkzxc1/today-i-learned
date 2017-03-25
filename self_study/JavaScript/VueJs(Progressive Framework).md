@@ -275,6 +275,76 @@ anchored-heading 안에 Hello world!와 같이 slot속성 없이 자식을 패�
     ​
 
 
+조건 거짓일 경우 if는 마크업상 존재하지 않음,
+
+show는 마크업상 존재하고 display: none; 상태일 뿐이다.
+
+
+
+- v-for
+  - Array | Object | number | string 을 쓸 수 있다.
+
+```html
+<li v-for="feature in vue_features" class="vue_features__item">{{vue_features.indexOf(feature)+1}}
+//js 문법, 메소드를 활용하여 index위치를 적용할 수 있지만 자체적으로 
+
+<li v-for="(feature,index) in vue_features" class="vue_features__item">{{index + 1}}{{feature}}</li>
+(item,index) 값을 이렇게 쓸 수 있다. 
+
+
+ii)객체의 경우 value,key,index를 가져와 쓸 수 있다. 
+
+<div v-for="(item, index) in items"></div>
+<div v-for="(val, key) in object"></div>
+<div v-for="(val, key, index) in object"></div>
+
+수업 예제) 
+
+ <template v-for="(feature, index) of vue_features">
+        <li class="vue-features__item">
+          {{ feature.context }}
+        </li>
+        <li class="vue-features__item zebra">
+          {{ feature.desc }}
+        </li>
+      </template>
+```
+
+
+
+### V-cloak & v-pre
+
+
+
+##### v-cloak
+
+```css
+[v-clock] {
+  display: none;
+}
+```
+
+```html
+<div v-cloak>
+	{{ message }}
+</div>
+```
+
+- 중괄호 자체를 안보이게 하기위해 사용
+- Vue 컴포넌트가 컴파일되기전에 중괄호가 보이는 것을 방지한다. 
+
+
+
+##### v-pre
+
+```html
+<span v-pre>{{ 이 부분은 컴파일 되지 않습니다. }}</span>
+```
+
+- 해당 엘리먼트와 모든 자식 엘리먼트에 대한 컴파일을 건너 뛴다.
+- mustache 태그가 나타난다.
+- 디렉티브가 없는 많은 수의 노드를 뛰어 넘으면 컴파일 속도가 빨라진다.
+
 
 
 
